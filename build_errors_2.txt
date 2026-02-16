@@ -1,0 +1,21 @@
+  Contracts -> C:\Github\WWI_ModularKit\src\Modules\Sales\Contracts\bin\Debug\net9.0\Contracts.dll
+  BuildingBlocks -> C:\Github\WWI_ModularKit\src\BuildingBlocks\bin\Debug\net9.0\BuildingBlocks.dll
+C:\Github\WWI_ModularKit\src\Modules\Sales\Features\Orders\CreateOrder\CreateOrderValidator.cs(1,7): error CS0246: The type or namespace name 'FluentValidation' could not be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Modules\Sales\Sales.csproj]
+C:\Github\WWI_ModularKit\src\Modules\Sales\Features\Orders\CreateOrder\CreateOrderValidator.cs(5,37): error CS0246: The type or namespace name 'AbstractValidator<>' could not be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Modules\Sales\Sales.csproj]
+C:\Github\WWI_ModularKit\src\Modules\Sales\Features\Orders\CreateOrder\CreateOrderValidator.cs(15,48): error CS0246: The type or namespace name 'AbstractValidator<>' could not be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Modules\Sales\Sales.csproj]
+C:\Github\WWI_ModularKit\src\Modules\Sales\Persistence\SalesDbContext.cs(10,18): error CS0246: The type or namespace name 'Order' could not be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Modules\Sales\Sales.csproj]
+C:\Github\WWI_ModularKit\src\Modules\Sales\Persistence\SalesDbContext.cs(11,18): error CS0246: The type or namespace name 'OrderLine' could not be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Modules\Sales\Sales.csproj]
+C:\Github\WWI_ModularKit\src\Modules\Sales\Persistence\SalesDbContext.cs(12,18): error CS0246: The type or namespace name 'Customer' could not be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Modules\Sales\Sales.csproj]
+
+Build FAILED.
+
+C:\Github\WWI_ModularKit\src\Modules\Sales\Features\Orders\CreateOrder\CreateOrderValidator.cs(1,7): error CS0246: The type or namespace name 'FluentValidation' could not be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Modules\Sales\Sales.csproj]
+C:\Github\WWI_ModularKit\src\Modules\Sales\Features\Orders\CreateOrder\CreateOrderValidator.cs(5,37): error CS0246: The type or namespace name 'AbstractValidator<>' could not be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Modules\Sales\Sales.csproj]
+C:\Github\WWI_ModularKit\src\Modules\Sales\Features\Orders\CreateOrder\CreateOrderValidator.cs(15,48): error CS0246: The type or namespace name 'AbstractValidator<>' could not be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Modules\Sales\Sales.csproj]
+C:\Github\WWI_ModularKit\src\Modules\Sales\Persistence\SalesDbContext.cs(10,18): error CS0246: The type or namespace name 'Order' could not be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Modules\Sales\Sales.csproj]
+C:\Github\WWI_ModularKit\src\Modules\Sales\Persistence\SalesDbContext.cs(11,18): error CS0246: The type or namespace name 'OrderLine' could not be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Modules\Sales\Sales.csproj]
+C:\Github\WWI_ModularKit\src\Modules\Sales\Persistence\SalesDbContext.cs(12,18): error CS0246: The type or namespace name 'Customer' could not be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Modules\Sales\Sales.csproj]
+    0 Warning(s)
+    6 Error(s)
+
+Time Elapsed 00:00:00.72

@@ -1,0 +1,58 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Contracts -> C:\Github\WWI_ModularKit\src\Modules\Sales\Contracts\bin\Debug\net9.0\Contracts.dll
+  BuildingBlocks -> C:\Github\WWI_ModularKit\src\BuildingBlocks\bin\Debug\net9.0\BuildingBlocks.dll
+  Sales -> C:\Github\WWI_ModularKit\src\Modules\Sales\bin\Debug\net9.0\Sales.dll
+  Host -> C:\Github\WWI_ModularKit\src\Host\bin\Debug\net9.0\Host.dll
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(67,62): warning CS8602: Dereference of a possibly null reference. [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+  WWI_ModularKit.IntegrationTests -> C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\bin\Debug\net9.0\WWI_ModularKit.IntegrationTests.dll
+Test run for C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\bin\Debug\net9.0\WWI_ModularKit.IntegrationTests.dll (.NETCoreApp,Version=v9.0)
+VSTest version 18.0.1 (x64)
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:07.36]     WWI_ModularKit.IntegrationTests.SalesIntegrationTests.CreateOrder_Should_EnforceTenantIsolation [FAIL]
+  Failed WWI_ModularKit.IntegrationTests.SalesIntegrationTests.CreateOrder_Should_EnforceTenantIsolation [475 ms]
+  Error Message:
+   System.InvalidOperationException : An exception was thrown while attempting to evaluate a LINQ query parameter expression. See the inner exception for more information. To show additional information call 'DbContextOptionsBuilder.EnableSensitiveDataLogging'.
+---- Microsoft.AspNetCore.Http.BadHttpRequestException : Tenant ID is required.
+  Stack Trace:
+     at Microsoft.EntityFrameworkCore.Query.Internal.ExpressionTreeFuncletizer.<Evaluate>g__EvaluateCore|73_0(Expression expression, String& parameterName, Boolean& isContextAccessor)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ExpressionTreeFuncletizer.Evaluate(Expression expression, String& parameterName, Boolean& isContextAccessor)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ExpressionTreeFuncletizer.ProcessEvaluatableRoot(Expression evaluatableRoot, State& state, Boolean forceEvaluation)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ExpressionTreeFuncletizer.VisitBinary(BinaryExpression binary)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ExpressionTreeFuncletizer.Visit(Expression expression, State& state)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ExpressionTreeFuncletizer.VisitLambda[T](Expression`1 lambda)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ExpressionTreeFuncletizer.Visit(Expression expression, State& state)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ExpressionTreeFuncletizer.ExtractParameters(Expression expression, IParameterValues parameterValues, Boolean parameterize, Boolean clearParameterizedValues, Boolean precompiledQuery, IReadOnlySet`1& nonNullableReferenceTypeParameters)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.ApplyQueryFilter(IEntityType entityType, NavigationExpansionExpression navigationExpansionExpression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.VisitExtension(Expression extensionExpression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.Expand(Expression query)
+   at Microsoft.EntityFrameworkCore.Query.QueryTranslationPreprocessor.Process(Expression query)
+   at Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutorExpression[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutor[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Storage.Database.CompileQuery[TResult](Expression query, Boolean async)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.CompileQueryCore[TResult](IDatabase database, Expression query, IModel model, Boolean async)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass11_0`1.<ExecuteCore>b__0()
+   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQuery[TResult](Object cacheKey, Func`1 compiler)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteCore[TResult](Expression query, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteAsync[TResult](Expression query, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.ExecuteAsync[TResult](Expression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1.GetAsyncEnumerator(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.System.Collections.Generic.IAsyncEnumerable<TEntity>.GetAsyncEnumerator(CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1.GetAsyncEnumerator()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at WWI_ModularKit.IntegrationTests.SalesIntegrationTests.<>c__DisplayClass2_0.<<CreateOrder_Should_EnforceTenantIsolation>b__0>d.MoveNext() in C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs:line 66
+--- End of stack trace from previous location ---
+   at WWI_ModularKit.IntegrationTests.BaseIntegrationTest.ExecuteInScope(Func`2 action, Nullable`1 tenantId) in C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\BaseIntegrationTest.cs:line 31
+   at WWI_ModularKit.IntegrationTests.SalesIntegrationTests.CreateOrder_Should_EnforceTenantIsolation() in C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs:line 59
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at WWI_ModularKit.IntegrationTests.TestTenantProvider.GetTenantId() in C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\TestTenantProvider.cs:line 10
+   at System.Linq.Expressions.Interpreter.FuncCallInstruction`2.Run(InterpretedFrame frame)
+   at System.Linq.Expressions.Interpreter.Interpreter.Run(InterpretedFrame frame)
+   at System.Linq.Expressions.Interpreter.LightLambda.Run(Object[] arguments)
+   at System.Dynamic.Utils.DelegateHelpers.FuncThunk[TReturn](Func`2 handler)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ExpressionTreeFuncletizer.<Evaluate>g__EvaluateCore|73_0(Expression expression, String& parameterName, Boolean& isContextAccessor)
+
+Failed!  - Failed:     1, Passed:     2, Skipped:     0, Total:     3, Duration: 3 s - WWI_ModularKit.IntegrationTests.dll (net9.0)

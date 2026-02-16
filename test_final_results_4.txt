@@ -1,0 +1,15 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Contracts -> C:\Github\WWI_ModularKit\src\Modules\Sales\Contracts\bin\Debug\net9.0\Contracts.dll
+  BuildingBlocks -> C:\Github\WWI_ModularKit\src\BuildingBlocks\bin\Debug\net9.0\BuildingBlocks.dll
+  Sales -> C:\Github\WWI_ModularKit\src\Modules\Sales\bin\Debug\net9.0\Sales.dll
+  Host -> C:\Github\WWI_ModularKit\src\Host\bin\Debug\net9.0\Host.dll
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(67,62): warning CS8602: Dereference of a possibly null reference. [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+  WWI_ModularKit.IntegrationTests -> C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\bin\Debug\net9.0\WWI_ModularKit.IntegrationTests.dll
+Test run for C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\bin\Debug\net9.0\WWI_ModularKit.IntegrationTests.dll (.NETCoreApp,Version=v9.0)
+VSTest version 18.0.1 (x64)
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:     3, Skipped:     0, Total:     3, Duration: 4 s - WWI_ModularKit.IntegrationTests.dll (net9.0)

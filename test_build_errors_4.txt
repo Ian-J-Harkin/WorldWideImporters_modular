@@ -1,0 +1,27 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Contracts -> C:\Github\WWI_ModularKit\src\Modules\Sales\Contracts\bin\Debug\net9.0\Contracts.dll
+  BuildingBlocks -> C:\Github\WWI_ModularKit\src\BuildingBlocks\bin\Debug\net9.0\BuildingBlocks.dll
+  Sales -> C:\Github\WWI_ModularKit\src\Modules\Sales\bin\Debug\net9.0\Sales.dll
+  Host -> C:\Github\WWI_ModularKit\src\Host\bin\Debug\net9.0\Host.dll
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(26,22): error CS0246: The type or namespace name 'CreateOrderLineItem' could not be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(21,27): error CS1729: 'CreateOrderCommand' does not contain a constructor that takes 5 arguments [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(52,62): warning CS8602: Dereference of a possibly null reference. [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(66,22): error CS0246: The type or namespace name 'CreateOrderLineItem' could not be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(61,27): error CS1729: 'CreateOrderCommand' does not contain a constructor that takes 5 arguments [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(95,22): error CS0246: The type or namespace name 'CreateOrderLineItem' could not be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(90,27): error CS1729: 'CreateOrderCommand' does not contain a constructor that takes 5 arguments [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+
+Build FAILED.
+
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(52,62): warning CS8602: Dereference of a possibly null reference. [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(26,22): error CS0246: The type or namespace name 'CreateOrderLineItem' could not be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(21,27): error CS1729: 'CreateOrderCommand' does not contain a constructor that takes 5 arguments [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(66,22): error CS0246: The type or namespace name 'CreateOrderLineItem' could not be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(61,27): error CS1729: 'CreateOrderCommand' does not contain a constructor that takes 5 arguments [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(95,22): error CS0246: The type or namespace name 'CreateOrderLineItem' could not be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(90,27): error CS1729: 'CreateOrderCommand' does not contain a constructor that takes 5 arguments [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+    1 Warning(s)
+    6 Error(s)
+
+Time Elapsed 00:00:01.89

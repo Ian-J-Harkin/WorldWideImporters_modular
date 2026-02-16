@@ -1,0 +1,17 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Contracts -> C:\Github\WWI_ModularKit\src\Modules\Sales\Contracts\bin\Debug\net9.0\Contracts.dll
+  BuildingBlocks -> C:\Github\WWI_ModularKit\src\BuildingBlocks\bin\Debug\net9.0\BuildingBlocks.dll
+  Sales -> C:\Github\WWI_ModularKit\src\Modules\Sales\bin\Debug\net9.0\Sales.dll
+  Host -> C:\Github\WWI_ModularKit\src\Host\bin\Debug\net9.0\Host.dll
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(25,17): error CS0117: 'Customer' does not contain a definition for 'CustomerCategory' [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(71,62): warning CS8602: Dereference of a possibly null reference. [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+
+Build FAILED.
+
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(71,62): warning CS8602: Dereference of a possibly null reference. [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs(25,17): error CS0117: 'Customer' does not contain a definition for 'CustomerCategory' [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\WWI_ModularKit.IntegrationTests.csproj]
+    1 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:03.12

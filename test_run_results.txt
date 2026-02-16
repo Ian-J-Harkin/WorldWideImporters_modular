@@ -1,0 +1,51 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Contracts -> C:\Github\WWI_ModularKit\src\Modules\Sales\Contracts\bin\Debug\net9.0\Contracts.dll
+  BuildingBlocks -> C:\Github\WWI_ModularKit\src\BuildingBlocks\bin\Debug\net9.0\BuildingBlocks.dll
+  Sales -> C:\Github\WWI_ModularKit\src\Modules\Sales\bin\Debug\net9.0\Sales.dll
+  Host -> C:\Github\WWI_ModularKit\src\Host\bin\Debug\net9.0\Host.dll
+  WWI_ModularKit.IntegrationTests -> C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\bin\Debug\net9.0\WWI_ModularKit.IntegrationTests.dll
+Test run for C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\bin\Debug\net9.0\WWI_ModularKit.IntegrationTests.dll (.NETCoreApp,Version=v9.0)
+VSTest version 18.0.1 (x64)
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:08.81]     WWI_ModularKit.IntegrationTests.SalesIntegrationTests.CreateOrder_Should_RollbackTransaction_OnFailure [FAIL]
+  Failed WWI_ModularKit.IntegrationTests.SalesIntegrationTests.CreateOrder_Should_RollbackTransaction_OnFailure [3 s]
+  Error Message:
+   Microsoft.AspNetCore.Http.BadHttpRequestException : Tenant ID is required.
+  Stack Trace:
+     at WWI_ModularKit.Host.Infrastructure.HttpTenantProvider.GetTenantId() in C:\Github\WWI_ModularKit\src\Host\Infrastructure\HttpTenantProvider.cs:line 22
+   at WWI_ModularKit.BuildingBlocks.Persistence.BaseDbContext`1.SaveChangesAsync(CancellationToken cancellationToken) in C:\Github\WWI_ModularKit\src\BuildingBlocks\Persistence\BaseDbContext.cs:line 57
+   at WWI_ModularKit.IntegrationTests.SalesIntegrationTests.<>c__DisplayClass3_0.<<CreateOrder_Should_RollbackTransaction_OnFailure>b__0>d.MoveNext() in C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs:line 95
+--- End of stack trace from previous location ---
+   at WWI_ModularKit.IntegrationTests.BaseIntegrationTest.ExecuteInScope(Func`2 action) in C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\BaseIntegrationTest.cs:line 18
+   at WWI_ModularKit.IntegrationTests.SalesIntegrationTests.CreateOrder_Should_RollbackTransaction_OnFailure() in C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs:line 82
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:09.39]     WWI_ModularKit.IntegrationTests.SalesIntegrationTests.CreateOrder_Should_EnforceTenantIsolation [FAIL]
+[xUnit.net 00:00:09.74]     WWI_ModularKit.IntegrationTests.SalesIntegrationTests.CreateOrder_Should_WriteToTransactionalOutbox [FAIL]
+  Failed WWI_ModularKit.IntegrationTests.SalesIntegrationTests.CreateOrder_Should_EnforceTenantIsolation [584 ms]
+  Error Message:
+   System.Net.Http.HttpRequestException : Response status code does not indicate success: 500 (Internal Server Error).
+  Stack Trace:
+     at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at WWI_ModularKit.IntegrationTests.SalesIntegrationTests.CreateOrder_Should_EnforceTenantIsolation() in C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs:line 36
+--- End of stack trace from previous location ---
+  Failed WWI_ModularKit.IntegrationTests.SalesIntegrationTests.CreateOrder_Should_WriteToTransactionalOutbox [341 ms]
+  Error Message:
+   Expected outboxMessages {empty} to have an item matching m.Body.Contains("Outbox Item").
+  Stack Trace:
+     at FluentAssertions.Execution.XUnit2TestFramework.Throw(String message)
+   at FluentAssertions.Execution.TestFrameworkProvider.Throw(String message)
+   at FluentAssertions.Execution.DefaultAssertionStrategy.HandleFailure(String message)
+   at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+   at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+   at FluentAssertions.Execution.AssertionScope.FailWith(String message, Object[] args)
+   at FluentAssertions.Collections.GenericCollectionAssertions`3.Contain(Expression`1 predicate, String because, Object[] becauseArgs)
+   at WWI_ModularKit.IntegrationTests.SalesIntegrationTests.<>c.<<CreateOrder_Should_WriteToTransactionalOutbox>b__2_0>d.MoveNext() in C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs:line 71
+--- End of stack trace from previous location ---
+   at WWI_ModularKit.IntegrationTests.BaseIntegrationTest.ExecuteInScope(Func`2 action) in C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\BaseIntegrationTest.cs:line 18
+   at WWI_ModularKit.IntegrationTests.SalesIntegrationTests.CreateOrder_Should_WriteToTransactionalOutbox() in C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs:line 68
+--- End of stack trace from previous location ---
+
+Failed!  - Failed:     3, Passed:     0, Skipped:     0, Total:     3, Duration: 4 s - WWI_ModularKit.IntegrationTests.dll (net9.0)

@@ -1,0 +1,20 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Contracts -> C:\Github\WWI_ModularKit\src\Modules\Sales\Contracts\bin\Debug\net9.0\Contracts.dll
+  BuildingBlocks -> C:\Github\WWI_ModularKit\src\BuildingBlocks\bin\Debug\net9.0\BuildingBlocks.dll
+  Sales -> C:\Github\WWI_ModularKit\src\Modules\Sales\bin\Debug\net9.0\Sales.dll
+C:\Github\WWI_ModularKit\src\Host\Program.cs(14,18): error CS1061: 'IServiceCollection' does not contain a definition for 'AddSwaggerGen' and no accessible extension method 'AddSwaggerGen' accepting a first argument of type 'IServiceCollection' could be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Host\Host.csproj]
+C:\Github\WWI_ModularKit\src\Host\Program.cs(36,11): error CS1061: 'IEntityFrameworkOutboxConfigurator' does not contain a definition for 'UsePostgreSql' and no accessible extension method 'UsePostgreSql' accepting a first argument of type 'IEntityFrameworkOutboxConfigurator' could be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Host\Host.csproj]
+C:\Github\WWI_ModularKit\src\Host\Program.cs(57,9): error CS1061: 'WebApplication' does not contain a definition for 'UseSwagger' and no accessible extension method 'UseSwagger' accepting a first argument of type 'WebApplication' could be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Host\Host.csproj]
+C:\Github\WWI_ModularKit\src\Host\Program.cs(58,9): error CS1061: 'WebApplication' does not contain a definition for 'UseSwaggerUI' and no accessible extension method 'UseSwaggerUI' accepting a first argument of type 'WebApplication' could be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Host\Host.csproj]
+
+Build FAILED.
+
+C:\Github\WWI_ModularKit\src\Host\Program.cs(14,18): error CS1061: 'IServiceCollection' does not contain a definition for 'AddSwaggerGen' and no accessible extension method 'AddSwaggerGen' accepting a first argument of type 'IServiceCollection' could be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Host\Host.csproj]
+C:\Github\WWI_ModularKit\src\Host\Program.cs(36,11): error CS1061: 'IEntityFrameworkOutboxConfigurator' does not contain a definition for 'UsePostgreSql' and no accessible extension method 'UsePostgreSql' accepting a first argument of type 'IEntityFrameworkOutboxConfigurator' could be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Host\Host.csproj]
+C:\Github\WWI_ModularKit\src\Host\Program.cs(57,9): error CS1061: 'WebApplication' does not contain a definition for 'UseSwagger' and no accessible extension method 'UseSwagger' accepting a first argument of type 'WebApplication' could be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Host\Host.csproj]
+C:\Github\WWI_ModularKit\src\Host\Program.cs(58,9): error CS1061: 'WebApplication' does not contain a definition for 'UseSwaggerUI' and no accessible extension method 'UseSwaggerUI' accepting a first argument of type 'WebApplication' could be found (are you missing a using directive or an assembly reference?) [C:\Github\WWI_ModularKit\src\Host\Host.csproj]
+    0 Warning(s)
+    4 Error(s)
+
+Time Elapsed 00:00:02.10

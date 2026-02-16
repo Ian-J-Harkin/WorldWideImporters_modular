@@ -1,0 +1,188 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Contracts -> C:\Github\WWI_ModularKit\src\Modules\Sales\Contracts\bin\Debug\net9.0\Contracts.dll
+  BuildingBlocks -> C:\Github\WWI_ModularKit\src\BuildingBlocks\bin\Debug\net9.0\BuildingBlocks.dll
+  Sales -> C:\Github\WWI_ModularKit\src\Modules\Sales\bin\Debug\net9.0\Sales.dll
+  Host -> C:\Github\WWI_ModularKit\src\Host\bin\Debug\net9.0\Host.dll
+  WWI_ModularKit.IntegrationTests -> C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\bin\Debug\net9.0\WWI_ModularKit.IntegrationTests.dll
+Test run for C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\bin\Debug\net9.0\WWI_ModularKit.IntegrationTests.dll (.NETCoreApp,Version=v9.0)
+VSTest version 18.0.1 (x64)
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:11.94]     WWI_ModularKit.IntegrationTests.SalesIntegrationTests.CreateOrder_Should_EnforceTenantIsolation [FAIL]
+  Failed WWI_ModularKit.IntegrationTests.SalesIntegrationTests.CreateOrder_Should_EnforceTenantIsolation [1 s]
+  Error Message:
+   System.InvalidOperationException : An exception was thrown while attempting to evaluate a LINQ query parameter expression. See the inner exception for more information. To show additional information call 'DbContextOptionsBuilder.EnableSensitiveDataLogging'.
+---- Microsoft.AspNetCore.Http.BadHttpRequestException : Tenant ID is required.
+  Stack Trace:
+     at Microsoft.EntityFrameworkCore.Query.Internal.ExpressionTreeFuncletizer.<Evaluate>g__EvaluateCore|73_0(Expression expression, String& parameterName, Boolean& isContextAccessor)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ExpressionTreeFuncletizer.Evaluate(Expression expression, String& parameterName, Boolean& isContextAccessor)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ExpressionTreeFuncletizer.ProcessEvaluatableRoot(Expression evaluatableRoot, State& state, Boolean forceEvaluation)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ExpressionTreeFuncletizer.VisitBinary(BinaryExpression binary)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ExpressionTreeFuncletizer.Visit(Expression expression, State& state)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ExpressionTreeFuncletizer.VisitLambda[T](Expression`1 lambda)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ExpressionTreeFuncletizer.Visit(Expression expression, State& state)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ExpressionTreeFuncletizer.ExtractParameters(Expression expression, IParameterValues parameterValues, Boolean parameterize, Boolean clearParameterizedValues, Boolean precompiledQuery, IReadOnlySet`1& nonNullableReferenceTypeParameters)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.ApplyQueryFilter(IEntityType entityType, NavigationExpansionExpression navigationExpansionExpression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.VisitExtension(Expression extensionExpression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.Expand(Expression query)
+   at Microsoft.EntityFrameworkCore.Query.QueryTranslationPreprocessor.Process(Expression query)
+   at Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutorExpression[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutor[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Storage.Database.CompileQuery[TResult](Expression query, Boolean async)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.CompileQueryCore[TResult](IDatabase database, Expression query, IModel model, Boolean async)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass11_0`1.<ExecuteCore>b__0()
+   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQuery[TResult](Object cacheKey, Func`1 compiler)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteCore[TResult](Expression query, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteAsync[TResult](Expression query, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.ExecuteAsync[TResult](Expression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1.GetAsyncEnumerator(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.System.Collections.Generic.IAsyncEnumerable<TEntity>.GetAsyncEnumerator(CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1.GetAsyncEnumerator()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at WWI_ModularKit.IntegrationTests.SalesIntegrationTests.<>c__DisplayClass2_0.<<CreateOrder_Should_EnforceTenantIsolation>b__0>d.MoveNext() in C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs:line 70
+--- End of stack trace from previous location ---
+   at WWI_ModularKit.IntegrationTests.BaseIntegrationTest.ExecuteInScope(Func`2 action, Nullable`1 tenantId) in C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\BaseIntegrationTest.cs:line 31
+   at WWI_ModularKit.IntegrationTests.SalesIntegrationTests.CreateOrder_Should_EnforceTenantIsolation() in C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs:line 65
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at WWI_ModularKit.IntegrationTests.TestTenantProvider.GetTenantId() in C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\TestTenantProvider.cs:line 10
+   at System.Linq.Expressions.Interpreter.FuncCallInstruction`2.Run(InterpretedFrame frame)
+   at System.Linq.Expressions.Interpreter.Interpreter.Run(InterpretedFrame frame)
+   at System.Linq.Expressions.Interpreter.LightLambda.Run(Object[] arguments)
+   at System.Dynamic.Utils.DelegateHelpers.FuncThunk[TReturn](Func`2 handler)
+   at Microsoft.EntityFrameworkCore.Query.Internal.ExpressionTreeFuncletizer.<Evaluate>g__EvaluateCore|73_0(Expression expression, String& parameterName, Boolean& isContextAccessor)
+[xUnit.net 00:00:12.83]     WWI_ModularKit.IntegrationTests.SalesIntegrationTests.CreateOrder_Should_WriteToTransactionalOutbox [FAIL]
+  Failed WWI_ModularKit.IntegrationTests.SalesIntegrationTests.CreateOrder_Should_WriteToTransactionalOutbox [883 ms]
+  Error Message:
+   Expected outboxMessages 
+{
+    MassTransit.EntityFrameworkCoreIntegration.OutboxMessage
+    {
+        Body = "{
+  "messageId": "5cd10000-6023-345a-30b2-08de6da0c686",
+  "requestId": null,
+  "correlationId": null,
+  "conversationId": "5cd10000-6023-345a-a3cb-08de6da0c68c",
+  "initiatorId": null,
+  "sourceAddress": "rabbitmq://localhost/MSI_testhost_bus_mueoyydyrc4fie3nbdxg5egfyq?temporary=true",
+  "destinationAddress": "rabbitmq://localhost/WWI_ModularKit.Modules.Sales.Contracts.Events:OrderCreatedIntegrationEvent",
+  "responseAddress": null,
+  "faultAddress": null,
+  "messageType": [
+    "urn:message:WWI_ModularKit.Modules.Sales.Contracts.Events:OrderCreatedIntegrationEvent"
+  ],
+  "message": {
+    "orderId": "fc45bc6a-150a-448d-ae8a-30be3e179bf7",
+    "tenantId": "5c3bac05-66e1-436c-a265-7bb30d963507"
+  },
+  "expirationTime": null,
+  "sentTime": "2026-02-16T21:17:22.6067122Z",
+  "headers": {},
+  "host": {
+    "machineName": "MSI",
+    "processName": "testhost",
+    "processId": 53596,
+    "assembly": "testhost",
+    "assemblyVersion": "15.0.0.0",
+    "frameworkVersion": "9.0.13",
+    "massTransitVersion": "8.3.6.0",
+    "operatingSystemVersion": "Microsoft Windows NT 10.0.26200.0"
+  }
+}", 
+        ContentType = "application/vnd.masstransit+json", 
+        ConversationId = {5cd10000-6023-345a-a3cb-08de6da0c68c}, 
+        CorrelationId = <null>, 
+        DestinationAddress = rabbitmq://localhost/WWI_ModularKit.Modules.Sales.Contracts.Events:OrderCreatedIntegrationEvent, 
+        EnqueueTime = <null>, 
+        ExpirationTime = <null>, 
+        FaultAddress = <null>, 
+        Headers = <null>, 
+        InboxConsumerId = <null>, 
+        InboxMessageId = <null>, 
+        InitiatorId = <null>, 
+        MessageId = {5cd10000-6023-345a-30b2-08de6da0c686}, 
+        MessageType = "urn:message:WWI_ModularKit.Modules.Sales.Contracts.Events:OrderCreatedIntegrationEvent", 
+        OutboxId = {5cd10000-6023-345a-49b8-08de6da0c665}, 
+        Properties = "{
+  "RMQ-Exchange": "WWI_ModularKit.Modules.Sales.Contracts.Events:OrderCreatedIntegrationEvent"
+}", 
+        RequestId = <null>, 
+        ResponseAddress = <null>, 
+        SentTime = <2026-02-16 21:17:22.606712>, 
+        SequenceNumber = 1L, 
+        SourceAddress = rabbitmq://localhost/MSI_testhost_bus_mueoyydyrc4fie3nbdxg5egfyq?temporary=true
+    }, 
+    MassTransit.EntityFrameworkCoreIntegration.OutboxMessage
+    {
+        Body = "{
+  "messageId": "5cd10000-6023-345a-fb56-08de6da0c706",
+  "requestId": null,
+  "correlationId": null,
+  "conversationId": "5cd10000-6023-345a-0677-08de6da0c707",
+  "initiatorId": null,
+  "sourceAddress": "rabbitmq://localhost/MSI_testhost_bus_mueoyydyrc4fie3nbdxg5egfyq?temporary=true",
+  "destinationAddress": "rabbitmq://localhost/WWI_ModularKit.Modules.Sales.Contracts.Events:OrderCreatedIntegrationEvent",
+  "responseAddress": null,
+  "faultAddress": null,
+  "messageType": [
+    "urn:message:WWI_ModularKit.Modules.Sales.Contracts.Events:OrderCreatedIntegrationEvent"
+  ],
+  "message": {
+    "orderId": "9c4db727-5600-4407-8087-15429ba4f6da",
+    "tenantId": "1e85286d-c3cf-486d-9c7f-5c4a04a8586f"
+  },
+  "expirationTime": null,
+  "sentTime": "2026-02-16T21:17:23.4507606Z",
+  "headers": {},
+  "host": {
+    "machineName": "MSI",
+    "processName": "testhost",
+    "processId": 53596,
+    "assembly": "testhost",
+    "assemblyVersion": "15.0.0.0",
+    "frameworkVersion": "9.0.13",
+    "massTransitVersion": "8.3.6.0",
+    "operatingSystemVersion": "Microsoft Windows NT 10.0.26200.0"
+  }
+}", 
+        ContentType = "application/vnd.masstransit+json", 
+        ConversationId = {5cd10000-6023-345a-0677-08de6da0c707}, 
+        CorrelationId = <null>, 
+        DestinationAddress = rabbitmq://localhost/WWI_ModularKit.Modules.Sales.Contracts.Events:OrderCreatedIntegrationEvent, 
+        EnqueueTime = <null>, 
+        ExpirationTime = <null>, 
+        FaultAddress = <null>, 
+        Headers = <null>, 
+        InboxConsumerId = <null>, 
+        InboxMessageId = <null>, 
+        InitiatorId = <null>, 
+        MessageId = {5cd10000-6023-345a-fb56-08de6da0c706}, 
+        MessageType = "urn:message:WWI_ModularKit.Modules.Sales.Contracts.Events:OrderCreatedIntegrationEvent", 
+        OutboxId = {5cd10000-6023-345a-a04a-08de6da0c704}, 
+        Properties = "{
+  "RMQ-Exchange": "WWI_ModularKit.Modules.Sales.Contracts.Events:OrderCreatedIntegrationEvent"
+}", 
+        RequestId = <null>, 
+        ResponseAddress = <null>, 
+        SentTime = <2026-02-16 21:17:23.450760>, 
+        SequenceNumber = 2L, 
+        SourceAddress = rabbitmq://localhost/MSI_testhost_bus_mueoyydyrc4fie3nbdxg5egfyq?temporary=true
+    }
+} to have an item matching m.Body.Contains("Outbox Item").
+  Stack Trace:
+     at FluentAssertions.Execution.XUnit2TestFramework.Throw(String message)
+   at FluentAssertions.Execution.TestFrameworkProvider.Throw(String message)
+   at FluentAssertions.Execution.DefaultAssertionStrategy.HandleFailure(String message)
+   at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+   at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+   at FluentAssertions.Execution.AssertionScope.FailWith(String message, Object[] args)
+   at FluentAssertions.Collections.GenericCollectionAssertions`3.Contain(Expression`1 predicate, String because, Object[] becauseArgs)
+   at WWI_ModularKit.IntegrationTests.SalesIntegrationTests.<>c.<<CreateOrder_Should_WriteToTransactionalOutbox>b__3_0>d.MoveNext() in C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs:line 98
+--- End of stack trace from previous location ---
+   at WWI_ModularKit.IntegrationTests.BaseIntegrationTest.ExecuteInScope(Func`2 action, Nullable`1 tenantId) in C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\BaseIntegrationTest.cs:line 31
+   at WWI_ModularKit.IntegrationTests.SalesIntegrationTests.CreateOrder_Should_WriteToTransactionalOutbox() in C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\SalesIntegrationTests.cs:line 95
+--- End of stack trace from previous location ---
+
+Failed!  - Failed:     2, Passed:     1, Skipped:     0, Total:     3, Duration: 8 s - WWI_ModularKit.IntegrationTests.dll (net9.0)
