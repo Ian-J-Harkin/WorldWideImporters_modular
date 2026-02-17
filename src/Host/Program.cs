@@ -78,10 +78,17 @@ if (useInMemory)
     builder.Services.AddDbContext<SalesDbContext>(options =>
         options.UseInMemoryDatabase("Sales"));
 
+    builder.Services.AddDbContext<WWI_ModularKit.Modules.Warehouse.Persistence.WarehouseDbContext>(options =>
+        options.UseInMemoryDatabase("WarehouseMock"));
+
     // Register MassTransit with In-Memory Transport
     builder.Services.AddMassTransit(x =>
     {
-        x.AddConsumer<WWI_ModularKit.Host.Infrastructure.Mocks.MockWarehouseConsumer>();
+        // Warehouse Consumers
+        x.AddConsumer<WWI_ModularKit.Modules.Warehouse.Features.OrderCreatedConsumer>();
+        
+        // Sales Consumers
+        x.AddConsumer<WWI_ModularKit.Modules.Sales.Features.Orders.StockReservedConsumer>();
 
         x.UsingInMemory((context, cfg) =>
         {

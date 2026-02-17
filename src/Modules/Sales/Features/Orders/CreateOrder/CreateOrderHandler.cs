@@ -36,7 +36,9 @@ public class CreateOrderHandler(
         // We publish the event before SaveChanges so it's persisted to the Outbox within the same transaction.
         // We pull the TenantId from the provider to ensure the integration event is correctly populated.
         var tenantId = tenantProvider.GetTenantId();
-        await publishEndpoint.Publish(new OrderCreatedIntegrationEvent(order.Id, tenantId), cancellationToken);
+        
+        var eventLines = order.Lines.Select(l => new OrderLineDto(l.StockItemId, l.Quantity)).ToList();
+        await publishEndpoint.Publish(new OrderCreatedIntegrationEvent(order.Id, tenantId, eventLines), cancellationToken);
 
         await dbContext.SaveChangesAsync(cancellationToken);
         await transaction.CommitAsync(cancellationToken);

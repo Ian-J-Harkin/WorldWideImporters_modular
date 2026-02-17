@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\BuildingBlocks\BuildingBlocks.csproj" />
     <ProjectReference Include="Contracts\Contracts.csproj" />
+    <ProjectReference Include="..\Warehouse\Contracts\WWI_ModularKit.Modules.Warehouse.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>

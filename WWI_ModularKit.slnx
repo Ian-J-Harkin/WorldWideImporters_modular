@@ -9,4 +9,10 @@
   <Folder Name="/src/Modules/Sales/">
     <Project Path="src/Modules/Sales/Contracts/Contracts.csproj" />
   </Folder>
+  <Folder Name="/src/Modules/Warehouse/">
+    <Project Path="src/Modules/Warehouse/WWI_ModularKit.Modules.Warehouse.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/WWI_ModularKit.UnitTests/WWI_ModularKit.UnitTests.csproj" />
+  </Folder>
 </Solution>

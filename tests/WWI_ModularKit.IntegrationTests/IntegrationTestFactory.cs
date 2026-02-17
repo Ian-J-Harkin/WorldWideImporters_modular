@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Testcontainers.PostgreSql;
 using WWI_ModularKit.Modules.Sales.Persistence;
+using WWI_ModularKit.Modules.Warehouse.Persistence;
 using WWI_ModularKit.BuildingBlocks.Abstractions;
 
 namespace WWI_ModularKit.IntegrationTests;
@@ -38,6 +39,10 @@ public class IntegrationTestFactory : WebApplicationFactory<Program>, IAsyncLife
             // Add Test DbContext using Testcontainers Connection String
             services.AddDbContext<SalesDbContext>(options =>
                 options.UseNpgsql(_dbContainer.GetConnectionString()));
+
+            // Register WarehouseDbContext (In-Memory for now, as per Mock-First strategy)
+            services.AddDbContext<WarehouseDbContext>(options =>
+                options.UseInMemoryDatabase("WarehouseTest"));
 
             // Override ITenantProvider with TestTenantProvider (Singleton for AsyncLocal support)
             services.AddSingleton<TestTenantProvider>();

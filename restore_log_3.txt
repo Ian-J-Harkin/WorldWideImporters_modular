@@ -1,0 +1,4 @@
+  Determining projects to restore...
+C:\Github\WWI_ModularKit\src\Modules\Warehouse\WWI_ModularKit.Modules.Warehouse.csproj : error NU1010: The following PackageReference items do not define a corresponding PackageVersion item: Microsoft.Extensions.Logging.Abstractions. Projects using Central Package Management must declare PackageReference and PackageVersion items with matching names. For more information, visit https://aka.ms/nuget/cpm/gettingstarted [C:\Github\WWI_ModularKit\tests\WWI_ModularKit.UnitTests\WWI_ModularKit.UnitTests.csproj]
+  Failed to restore C:\Github\WWI_ModularKit\src\Modules\Warehouse\WWI_ModularKit.Modules.Warehouse.csproj (in 135 ms).
+  5 of 6 projects are up-to-date for restore.

@@ -1,0 +1,15 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  WWI_ModularKit.Modules.Warehouse.Contracts -> C:\Github\WWI_ModularKit\src\Modules\Warehouse\Contracts\bin\Debug\net9.0\WWI_ModularKit.Modules.Warehouse.Contracts.dll
+  BuildingBlocks -> C:\Github\WWI_ModularKit\src\BuildingBlocks\bin\Debug\net9.0\BuildingBlocks.dll
+  Contracts -> C:\Github\WWI_ModularKit\src\Modules\Sales\Contracts\bin\Debug\net9.0\Contracts.dll
+  Sales -> C:\Github\WWI_ModularKit\src\Modules\Sales\bin\Debug\net9.0\Sales.dll
+  WWI_ModularKit.Modules.Warehouse -> C:\Github\WWI_ModularKit\src\Modules\Warehouse\bin\Debug\net9.0\WWI_ModularKit.Modules.Warehouse.dll
+  Host -> C:\Github\WWI_ModularKit\src\Host\bin\Debug\net9.0\Host.dll
+  WWI_ModularKit.IntegrationTests -> C:\Github\WWI_ModularKit\tests\WWI_ModularKit.IntegrationTests\bin\Debug\net9.0\WWI_ModularKit.IntegrationTests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.74

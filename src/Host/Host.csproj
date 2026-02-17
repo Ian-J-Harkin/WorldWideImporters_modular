@@ -16,10 +16,12 @@
     </PackageReference>
     <PackageReference Include="MassTransit.RabbitMQ" />
     <PackageReference Include="MassTransit.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Modules\Sales\Sales.csproj" />
+    <ProjectReference Include="..\Modules\Warehouse\WWI_ModularKit.Modules.Warehouse.csproj" />
     <ProjectReference Include="..\BuildingBlocks\BuildingBlocks.csproj" />
   </ItemGroup>
 

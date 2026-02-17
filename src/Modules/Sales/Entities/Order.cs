@@ -12,5 +12,8 @@ public class Order : BaseEntity
     
     public Guid CustomerId { get; set; }
     public Customer? Customer { get; set; }
+    
+    public string Status { get; set; } = "Pending";
+
     public List<OrderLine> Lines { get; set; } = new();
 }
