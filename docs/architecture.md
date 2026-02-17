@@ -27,3 +27,12 @@ graph TD
     end
     D --> E{RabbitMQ Bus}
     E --> F[Warehouse_Module_Consumer]
+```
+
+## 3. Frontend Standards
+- **Framework:** Angular 17+ (Standalone components).
+- **Styling:** Tailwind CSS. 
+    - > [!IMPORTANT]
+    - > **Tailwind version must not exceed v3.4.** 
+    - > Version 4.x has been tested and found incompatible with the current Angular build system and PostCSS pipeline in this environment. Do not upgrade without a verified, dedicated compatibility spike.
+- **State Management:** Angular Signals for local component state and computed values.

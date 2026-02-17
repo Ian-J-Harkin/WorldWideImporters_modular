@@ -21,7 +21,7 @@ Build a production-grade .NET 8/9 Modular Monolith using WideWorldImporters (WWI
 ## 🛠️ Tech Stack & Conventions
 - **Backend:** .NET 8/9, EF Core (Npgsql), MediatR, MassTransit, FluentValidation.
 - **Database:** PostgreSQL (Development via Docker Compose).
-- **Frontend:** Angular (Standalone, Tailwind CSS).
+- **Frontend:** Angular (Standalone, Tailwind CSS v3.4 recommended).
 - **Coding Style:** File-scoped namespaces, Primary Constructors (C# 12+), `internal` by default for implementation classes.
 
 ## �️ Production Guardrails
