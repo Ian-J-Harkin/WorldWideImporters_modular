@@ -9,6 +9,8 @@ using WWI_ModularKit.Modules.Sales.Features.Orders.CreateOrder;
 using Microsoft.Extensions.DependencyInjection;
 using WWI_ModularKit.Modules.Sales.Entities;
 
+[assembly: CollectionBehavior(DisableTestParallelization = true)]
+
 namespace WWI_ModularKit.IntegrationTests;
 
 public class SalesIntegrationTests(IntegrationTestFactory factory) : BaseIntegrationTest(factory)

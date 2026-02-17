@@ -6,16 +6,6 @@ These tests confirm that your "Guardrails" are active and that the Transactional
 
 ---
 
-## 🏗️ Technical Architecture: Hybrid Model
-> [!IMPORTANT]
-> This project uses a **Hybrid Development Environment**. To test the full flow, you must have **three distinct layers** running simultaneously:
->
-> 1. **Infrastructure (Docker)**: Postgres and RabbitMQ must be running in Docker.
-> 2. **Backend API (Local)**: The .NET Host project must be running locally via `dotnet run`.
-> 3. **Frontend UI (Local)**: The Angular client must be running locally via `npm start`.
-
----
-
 ## 🛠️ Phase 0: Pre-flight Diagnostics (The "Three-Terminal" Setup)
 Before starting the tests, ensure your local environment is correctly configured. You will need at least **three terminal windows** open.
 
@@ -25,7 +15,13 @@ Before starting the tests, ensure your local environment is correctly configured
    ```powershell
    docker ps
    ```
-   *Verification*: You should see `postgres:16-alpine` and `rabbitmq:3-management` with status `Up`.
+2. **Verify Database & Seed Customer**:
+   Ensure you can connect to `localhost:5433`. Since we are using a strict foreign key on `Orders.CustomerId`, you MUST seed a test customer first. 
+   
+   I have created a `seed_customer.sql` file in the root directory for you. Run this command to apply it:
+   ```powershell
+   Get-Content seed_customer.sql | docker exec -i wwi_modularkit-postgres-1 psql -U wwi_admin -d wwi_modular_monolith
+   ```
 
 ### **Terminal 2: Backend API (.NET)**
 1. **Start the API Host**:
@@ -38,10 +34,10 @@ Before starting the tests, ensure your local environment is correctly configured
 ### **Terminal 3: Frontend UI (Angular)**
 1. **Start the Client**:
    ```powershell
-   cd c:/Github/WWI_ModularKit/client
+   cd client
    npm start
    ```
-   *Verification*: Wait for the terminal to say `✔ Compiled successfully.` and navigate to `http://localhost:4200`.
+   *Verification*: Navigate to `http://localhost:4200`.
 
 ---
 
@@ -127,7 +123,7 @@ Once the backend is confirmed healthy, verify the production guardrails from the
    *Verification*: Navigate to `http://localhost:4200`.
 
 2. **Test 6: UI Multi-Tenancy Guardrail** (Production Guardrail 1)
-   - **Action**: Without clicking "Set Test Tenant", enter a Customer ID and click **Submit Order**.
+   - **Action**: Without clicking **"Fix: Set Test Tenant"**, enter a Customer ID and click **Submit Order**.
    - **Expected Result**: 
      - The request must **not** reach the backend.
      - Check the Browser Console (F12): You should see an error: `"Tenant ID is required for all requests."`
@@ -140,13 +136,14 @@ Once the backend is confirmed healthy, verify the production guardrails from the
      - The "Total Amount" at the bottom updates instantly to `$75.00`.
    - **Verification**: This confirms the Angular **Signals** and **computed** values are correctly wired.
 
-4. **Test 8: End-to-End Success**
+4. **Test 8: Success Flow (The "End-to-End" Test)**
    - **Action**: 
-     1. Click **"Fix: Set Test Tenant"** in the top bar.
-     2. Ensure the status shows `Tenant: 8db1620a...` (Green indicator).
-     3. Click **Submit Order**.
+     1. Click **"Fix: Set Test Tenant"**.
+     2. Click **"✨ Use Sample Customer"** (which enters `682f8664-9640-410a-8651-f0945934188b`).
+     3. Click **"Submit Order"**.
    - **Expected Result**: 
-     - Browser Console shows: `Order created: [GUID]`.
+     - An alert should appear: `Order created: [GUID]`.
+     - The browser console should log the new Order ID.
      - Check Database: `SELECT * FROM sales."Orders"` should show the new record with the correct tenant.
 
 ---

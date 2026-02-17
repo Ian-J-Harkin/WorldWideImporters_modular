@@ -39,9 +39,9 @@ public class IntegrationTestFactory : WebApplicationFactory<Program>, IAsyncLife
             services.AddDbContext<SalesDbContext>(options =>
                 options.UseNpgsql(_dbContainer.GetConnectionString()));
 
-            // Override ITenantProvider with TestTenantProvider
-            services.AddScoped<TestTenantProvider>();
-            services.AddScoped<ITenantProvider>(sp => sp.GetRequiredService<TestTenantProvider>());
+            // Override ITenantProvider with TestTenantProvider (Singleton for AsyncLocal support)
+            services.AddSingleton<TestTenantProvider>();
+            services.AddSingleton<ITenantProvider>(sp => sp.GetRequiredService<TestTenantProvider>());
 
             // Add StartupFilter for Middleware
             services.AddTransient<IStartupFilter, TenantStartupFilter>();

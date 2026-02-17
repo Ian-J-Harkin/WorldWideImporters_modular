@@ -12,8 +12,8 @@ using WWI_ModularKit.Modules.Sales.Persistence;
 namespace Sales.Persistence.Migrations
 {
     [DbContext(typeof(SalesDbContext))]
-    [Migration("20260216173419_InitialSalesMigration")]
-    partial class InitialSalesMigration
+    [Migration("20260217182820_InitialSalesSchema")]
+    partial class InitialSalesSchema
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -2,12 +2,19 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-@Injectable({ providedIn: 'root' })
-export class SalesService {
-    private http = inject(HttpClient);
-    private apiUrl = '/api/sales/orders'; // Targets Host/Program.cs endpoint
+export interface Customer {
+    id: string;
+    name: string;
+}
 
-    createOrder(command: any): Observable<string> {
-        return this.http.post<string>(this.apiUrl, command);
-    }
+export interface Product {
+    stockItemId: number;
+    description: string;
+    unitPrice: number;
+}
+
+export abstract class SalesService {
+    abstract createOrder(command: any): Observable<string>;
+    abstract getCustomers(): Observable<Customer[]>;
+    abstract getProducts(): Observable<Product[]>;
 }

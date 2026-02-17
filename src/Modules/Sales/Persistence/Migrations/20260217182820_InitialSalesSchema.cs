@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Sales.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialSalesMigration : Migration
+    public partial class InitialSalesSchema : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

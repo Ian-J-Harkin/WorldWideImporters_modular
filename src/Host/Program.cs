@@ -65,31 +65,58 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
 ));
 builder.Services.AddValidatorsFromAssembly(typeof(CreateOrderHandler).Assembly);
 
-// Register Database Contexts
-builder.Services.AddDbContext<SalesDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Check for In-Memory Mode
+bool useInMemory = builder.Configuration.GetValue<bool>("UseInMemoryDatabase");
 
-// Register MassTransit
-builder.Services.AddMassTransit(x =>
+if (useInMemory)
 {
-    // Configure Transactional Outbox for Sales Module
-    x.AddEntityFrameworkOutbox<SalesDbContext>(o =>
-    {
-        o.UsePostgres();
-        o.UseBusOutbox();
-    });
+    Console.ForegroundColor = ConsoleColor.Yellow;
+    Console.WriteLine("⚠️ ARCHITECTURE ALERT: Running with In-Memory Database. Data will NOT persist.");
+    Console.ResetColor();
 
-    x.UsingRabbitMq((context, cfg) =>
+    // Register In-Memory Database
+    builder.Services.AddDbContext<SalesDbContext>(options =>
+        options.UseInMemoryDatabase("Sales"));
+
+    // Register MassTransit with In-Memory Transport
+    builder.Services.AddMassTransit(x =>
     {
-        cfg.Host("localhost", "/", h =>
+        x.AddConsumer<WWI_ModularKit.Host.Infrastructure.Mocks.MockWarehouseConsumer>();
+
+        x.UsingInMemory((context, cfg) =>
         {
-            h.Username("guest");
-            h.Password("guest");
+            cfg.ConfigureEndpoints(context);
         });
-        
-        cfg.ConfigureEndpoints(context);
     });
-});
+}
+else
+{
+    // Register Production Database (PostgreSQL)
+    builder.Services.AddDbContext<SalesDbContext>(options =>
+        options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+    // Register MassTransit with RabbitMQ
+    builder.Services.AddMassTransit(x =>
+    {
+        // Configure Transactional Outbox for Sales Module
+        x.AddEntityFrameworkOutbox<SalesDbContext>(o =>
+        {
+            o.UsePostgres();
+            o.UseBusOutbox();
+        });
+
+        x.UsingRabbitMq((context, cfg) =>
+        {
+            cfg.Host("localhost", "/", h =>
+            {
+                h.Username("guest");
+                h.Password("guest");
+            });
+            
+            cfg.ConfigureEndpoints(context);
+        });
+    });
+}
 
 var app = builder.Build();
 
