@@ -129,4 +129,76 @@ public class SalesIntegrationTests(IntegrationTestFactory factory) : BaseIntegra
             orders.Should().NotContain(o => o.TenantId == tenantId);
         }, tenantId);
     }
+
+    [Fact]
+    public async Task GetOrders_Should_RespectTenantIsolation()
+    {
+        // Arrange
+        var tenantA = Guid.NewGuid();
+        var tenantB = Guid.NewGuid();
+        var customerA = await SeedCustomerAsync(tenantA);
+        var customerB = await SeedCustomerAsync(tenantB);
+
+        // Create order for Tenant A
+        var commandA = new CreateOrderCommand(
+            customerA,
+            new List<CreateOrderRequestLine> { new(1, "Tenant A Item", 5, 50) }
+        );
+        var requestCreateA = new HttpRequestMessage(HttpMethod.Post, "/api/sales/orders")
+        {
+            Content = JsonContent.Create(commandA)
+        };
+        requestCreateA.Headers.Add("X-Tenant-Id", tenantA.ToString());
+        await Client.SendAsync(requestCreateA);
+
+        // Create order for Tenant B
+        var commandB = new CreateOrderCommand(
+            customerB,
+            new List<CreateOrderRequestLine> { new(2, "Tenant B Item", 10, 100) }
+        );
+        var requestCreateB = new HttpRequestMessage(HttpMethod.Post, "/api/sales/orders")
+        {
+            Content = JsonContent.Create(commandB)
+        };
+        requestCreateB.Headers.Add("X-Tenant-Id", tenantB.ToString());
+        await Client.SendAsync(requestCreateB);
+
+        // Act - Get orders for Tenant A
+        var requestGetA = new HttpRequestMessage(HttpMethod.Get, "/api/sales/orders");
+        requestGetA.Headers.Add("X-Tenant-Id", tenantA.ToString());
+        var responseA = await Client.SendAsync(requestGetA);
+        var ordersAJson = await responseA.Content.ReadAsStringAsync();
+
+        // Act - Get orders for Tenant B
+        var requestGetB = new HttpRequestMessage(HttpMethod.Get, "/api/sales/orders");
+        requestGetB.Headers.Add("X-Tenant-Id", tenantB.ToString());
+        var responseB = await Client.SendAsync(requestGetB);
+        var ordersBJson = await responseB.Content.ReadAsStringAsync();
+
+        // Assert
+        responseA.EnsureSuccessStatusCode();
+        responseB.EnsureSuccessStatusCode();
+        
+        // Verify using database queries instead of JSON parsing
+        await ExecuteInScope(async db =>
+        {
+            var tenantAOrders = await db.Orders.ToListAsync();
+            tenantAOrders.Should().HaveCount(1);
+            tenantAOrders[0].CustomerId.Should().Be(customerA);
+        }, tenantA);
+
+        await ExecuteInScope(async db =>
+        {
+            var tenantBOrders = await db.Orders.ToListAsync();
+            tenantBOrders.Should().HaveCount(1);
+            tenantBOrders[0].CustomerId.Should().Be(customerB);
+        }, tenantB);
+        
+        // Verify cross-tenant isolation: Tenant A should not see Tenant B's orders
+        await ExecuteInScope(async db =>
+        {
+            var visibleOrders = await db.Orders.ToListAsync();
+            visibleOrders.Should().NotContain(o => o.CustomerId == customerB);
+        }, tenantA);
+    }
 }

@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:latest
+    image: postgres:16-alpine
     environment:
       - POSTGRES_USER=wwi_admin
       - POSTGRES_PASSWORD=wwi_password
@@ -8,7 +8,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - wwi_postgres_fresh:/var/lib/postgresql/data
 
   rabbitmq:
     image: rabbitmq:3-management
@@ -20,4 +20,4 @@ services:
       - RABBITMQ_DEFAULT_PASS=guest
 
 volumes:
-  postgres_data:
+  wwi_postgres_fresh:

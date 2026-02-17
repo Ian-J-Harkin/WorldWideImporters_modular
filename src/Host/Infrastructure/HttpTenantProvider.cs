@@ -10,15 +10,19 @@ public class HttpTenantProvider(IHttpContextAccessor httpContextAccessor) : ITen
     public Guid GetTenantId()
     {
         var context = httpContextAccessor.HttpContext;
-        if (context != null && context.Request.Headers.TryGetValue(TenantHeaderName, out var tenantIdStr))
+        if (context == null) 
+            throw new BadHttpRequestException("No HTTP context available.");
+
+        if (!context.Request.Headers.TryGetValue(TenantHeaderName, out var tenantIdStr) || string.IsNullOrWhiteSpace(tenantIdStr))
         {
-            if (Guid.TryParse(tenantIdStr, out var tenantId))
-            {
-                return tenantId;
-            }
+            throw new BadHttpRequestException($"Tenant ID header '{TenantHeaderName}' is required.");
         }
 
-        // Production Guardrail: Require Tenant ID for all operations
-        throw new BadHttpRequestException("Tenant ID is required.");
+        if (!Guid.TryParse(tenantIdStr, out var tenantId))
+        {
+            throw new BadHttpRequestException($"Invalid Tenant ID format: '{tenantIdStr}'. Must be a valid Guid.");
+        }
+
+        return tenantId;
     }
 }
